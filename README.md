@@ -8,7 +8,7 @@ Simple log in (login.py): This script provides basic mathematical operations aft
 
 Password Management (password_manager.py): This script allows the user to add new passwords for web addresses and securely store them. Passwords are encrypted and stored in a database using AES encryption and HMAC for integrity verification.
 
-#Repository Structure
+# Repository Structure
 The repository contains three Python scripts:
 - usermgmt.py: Script for managing user accounts.
 - login.py: Script for a simple calculator after user login.
