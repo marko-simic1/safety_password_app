@@ -1,0 +1,63 @@
+**usermgmt.py**
+
+Ova aplikacija koristi standardne Python module: os, sqlite3, hashlib, getpass i hmac. Ukoliko već nisu instalirani, možete ih instalirati pomoću pip install naredbe.
+
+Spremite kod u Python skriptu, user_management.py.
+Potrebno je pokrenuti naredbu 'pip install pycryptodome'.
+Pokrenite skriptu u naredbenom retku naredbom 'python user_management.py'.
+
+Nakon pokretanja prikazat će se glavni izbornik s različitim opcijama.
+
+Dodavanje novog korisnika:
+1. Odaberite opciju 1.
+2. Unesite korisničko ime i lozinku kada se zatraži.
+3. Nakon dodavanja, dobit ćete poruku o uspješnom dodavanju korisnika.
+
+Promjena lozinke korisnika:
+1. Odaberite opciju 2.
+2. Unesite korisničko ime za koje želite promijeniti lozinku.
+3. Ako korisnik postoji, unesite novu lozinku.
+4. Nakon toga, dobit ćete poruku o uspješnoj promjeni lozinke.
+
+Forsiranje promjene lozinke korisnika:
+1. Odaberite opciju 3.
+2. Unesite korisničko ime za koje želite forsirati promjenu lozinke.
+3. Ako korisnik postoji, njemu će biti postavljena oznaka za promjenu lozinke.
+4. Dobit ćete potvrdu o uspješnom forsiranju promjene lozinke.
+
+Uklanjanje korisnika:
+1. Odaberite opciju 4.
+2. Unesite korisničko ime koje želite ukloniti.
+3. Ako korisnik postoji, bit će trajno uklonjen iz baze podataka.
+4. Dobit ćete potvrdu o uspješnom uklanjanju korisnika.
+
+Ispis svih korisnika:
+1. Odaberite opciju 5.
+2. Ispisat će se popis svih korisnika koji su trenutno u bazi podataka.
+
+Izlaz iz aplikacije:
+1. Odaberite opciju 6.
+2. Aplikacija će se zatvoriti.
+
+**login.py**
+
+Spremite kod u Python skriptu, login.py. 
+Potrebno je pokrenuti naredbu 'pip install pycryptodome'.
+Pokrenite skriptu u naredbenom retku naredbom python secure_calculator.py.
+
+Prijava:
+1. Unesite korisničko ime i lozinku kada se zatraži.
+2. Lozinka će biti skrivena tijekom unosa.
+3. Nakon prijave, ako su podaci ispravni, bit ćete uspješno prijavljeni.
+
+Korištenje kalkulatora:
+1. Nakon prijave, bit će vam prikazan izbornik operacija:
+2. 1 za zbrajanje
+   2 za oduzimanje
+   3 za množenje
+   4 za dijeljenje
+3. Unesite željenu operaciju.
+4. Unos brojeva
+5. Izračun
+6. Rezultat će biti prikazan na ekranu.
+7. Kraj programa.

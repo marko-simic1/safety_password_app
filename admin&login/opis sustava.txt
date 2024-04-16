@@ -1,0 +1,19 @@
+Sustav je jednostavan korisnički sustav koji omogućuje dodavanje, promjenu lozinke, forsiranje promjene lozinke i brisanje korisnika. Sve korisničke informacije, uključujući korisnička imena, zaporku (hashiranu), salt, informaciju o prisili promjene lozinke i HMAC vrijednost, pohranjuju se u SQLite bazu podataka.
+
+**Zaštita**
+1. Hashiranje lozinke sa salt-om (PBKDF2). Koristi se funkcija hash_pw koja koristi PBKDF2 sa SHA-256 algoritmom za hashiranje lozinke uz korištenje salt-a. Ova tehnika otežava napadima pretraživanja po tablici (brute-force) pronalaženje originalnih lozinki.
+
+2. HMAC (Hash-based Message Authentication Code). HMAC se koristi za osiguravanje integriteta podataka prilikom promjene lozinke i dodavanja novog korisnika. Koristi se HMAC funkcija u funkcijama add i passwd kako bi se generirao HMAC za kombinaciju korisničkog imena i lozinke.
+
+3. Skrivanje osjetljivih podataka u bazi podataka. Lozinke se ne pohranjuju u čitljivom obliku, već se koristi njihov hash.
+
+4. Generiranje slučajnih ključeva. Korištena je funkcija generate_secret_key za generiranje tajnog ključa koji se koristi u HMAC algoritmu.
+
+5. Prisila promjene lozinke. Postoji mogućnost forsiranja promjene lozinke za određenog korisnika. Ovo je korisno za sigurnost ako postoji sumnja na kompromitaciju korisničkog računa.
+
+6. Korištenje SQLite parametriziranih upita. Za izvršavanje SQL upita koriste se parametrizirani upiti, čime se smanjuje rizik od SQL injection napada.
+
+7. Kriptiranje podataka. Korisnička imena i hashirane lozinke se kriptiraju prije pohrane u bazu podataka pomoću AES algoritma. To osigurava da osjetljivi podaci budu zaštićeni u bazi podataka.
+
+8. Korištenje Keyring biblioteke. Umjesto da tajni ključ bude pohranjen u običnoj datoteci, koristi se keyring biblioteka koja omogućava sigurno pohranjivanje tajnih informacija na platformskoj razini, čime se dodatno štiti tajni ključ od neovlaštenog pristupa. Tajni ključ se ne pohranjuje u varijablu tijekom izvršavanja programa. Umjesto toga, koristi se load_secret_key funkcija za dohvaćanje tajnog ključa iz Keyringa kad god je potrebno. To smanjuje mogućnost neovlaštenog pristupa tajnom ključu tijekom izvršavanja programa.
+
